@@ -1,8 +1,8 @@
 ### Elasticsearch SignalR
-* Elasticsearch & signalR kullanarak leaflet map'da sat?? verilerindeki enlem ve boylam bilgilerine
-  göre her sat?? için marker ekliyorum 30'dan fazla marker oldu mu ilk ekleneni kald?r?yorum k?saca
-  harita üzerinde son 30 sat?? verisi görüntüleniyor
-* Web uygulamas?, elasticsearch ve kibana docker-compose kullanarak docker üzerinde çal??t?r?yorum
+* Elasticsearch & signalR kullanarak leaflet map'da satýþ verilerindeki enlem ve boylam bilgilerine
+  göre her satýþ için marker ekliyorum 30' dan fazla marker oldu mu ilk ekleneni kaldýrýyorum kýsaca
+  harita üzerinde son 30 satýþ verisi görüntüleniyor.
+* Web uygulamasý, elasticsearch ve kibana docker-compose kullanarak docker üzerinde çalýþtýrdým.
 
 ***docker-compose***,
 ***SignalR Hub***,
