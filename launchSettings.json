@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "elasticsearch-signalr-chartjs.demo": "StartDebugging",
+        "webapplication1": "StartDebugging",
+        "elasticsearch-signalr-web": "StartDebugging"
+      }
+    }
+  }
+}

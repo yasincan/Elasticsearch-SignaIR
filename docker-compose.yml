@@ -1,0 +1,50 @@
+﻿version: '3.4'
+
+services:
+  elasticsearch:
+    image: elasticsearch:8.9.2
+    container_name: Elasticsearch
+    environment:
+      - bootstrap.memory_lock=true
+      - discovery.type=single-node   
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g" #2gb memory 
+      - ELASTIC_PASSWORD=admin
+      - xpack.security.enabled=false #Elasticsearch güvenligi devre dışı bırakmak için
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks: 
+      - localnetwork
+
+  kibana:
+    image: kibana:8.9.2
+    container_name: Kiban
+    environment:
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=admin
+    ports: 
+      - "5601:5601"
+    networks: 
+      - localnetwork
+    depends_on: 
+      - elasticsearch
+
+  elasticsearch-signalr-web:
+    container_name: WebApp
+    image: ${DOCKER_REGISTRY-}elasticsearchsignalrweb
+    build:
+      context: .
+      dockerfile: Elasticsearch-SignalR-Web/Dockerfile
+    depends_on: 
+      - elasticsearch
+    networks: 
+      - localnetwork
+
+networks:
+    localnetwork:
+      driver: bridge
+      external: true
